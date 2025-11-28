@@ -1,0 +1,153 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2025-11-26T01:49:28.510Z",
+    "end": "2025-11-26T01:50:39.230Z",
+    "duration": 70720,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e8c934c3-e9fc-4122-8b09-466f1f863f0d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f5fc3070-b230-4ca7-8bea-819e3f6e68b8",
+          "title": "Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login exitoso",
+              "fullTitle": "Login Test Login exitoso",
+              "timedOut": null,
+              "duration": 7028,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce$'); ///Puse in signo de dolar para que el test fallara \ncy.get('#login-button').click();\n// Validación de que entró correctamente\ncy.url().should('include', '/inventory');\ncy.get('.title').should('have.text', 'Products');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: expected 'https://www.saucedemo.com/' to include '/inventory'",
+                "estack": "AssertionError: Timed out retrying after 4000ms: expected 'https://www.saucedemo.com/' to include '/inventory'\n    at Context.eval (webpack://cypress-project/./cypress/e2e/login.cy.js:10:13)",
+                "diff": null
+              },
+              "uuid": "2d90f2be-e960-4e62-ba70-037ebc7ab410",
+              "parentUUID": "f5fc3070-b230-4ca7-8bea-819e3f6e68b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "2d90f2be-e960-4e62-ba70-037ebc7ab410"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 7028,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "fb3857c8-3d0a-4d4f-80ca-601641b95663",
+          "title": "Validación de productos en SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Valida que los productos se muestren correctamente",
+              "fullTitle": "Validación de productos en SauceDemo Valida que los productos se muestren correctamente",
+              "timedOut": null,
+              "duration": 385,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Verifica que la URL es correcta\ncy.url().should('include', '/inventory');\n// Validar que hay productos en pantalla\ncy.get('.inventory_item').should('have.length.greaterThan', 0);\n// Validar el primer producto\ncy.get('.inventory_item').first().within(() => {\n  // Nombre del producto\n  cy.get('.inventory_item_name').should('be.visible').and('not.be.empty');\n  // Precio del producto\n  cy.get('.inventory_item_price').should('be.visible').and('contain', '$'); // asegura formato correcto\n  // Botón \"Add to cart\"\n  cy.contains('Add to cart').should('be.visible');\n});",
+              "err": {
+                "message": "TypeError: Cannot destructure property 'duration' of 'props' as it is undefined.\n\nBecause this error occurred during a `after each` hook we are skipping all of the remaining tests.",
+                "estack": "TypeError: Cannot destructure property 'duration' of 'props' as it is undefined.\n\nBecause this error occurred during a `after each` hook we are skipping all of the remaining tests.\n    at <unknown> (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:134596:11)\n    at tryCatcher (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1668:18)\n    at Promise._resolveCallback (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1462:57)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1554:17)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1668:18)\n    at Promise._resolveCallback (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1462:57)\n    at Promise._settlePromiseFromHandler (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1554:17)\n    at Promise._settlePromise (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1724:18)\n    at Promise._fulfill (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:1668:18)\n    at PromiseArray._resolve (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2955:19)\n    at PromiseArray._promiseFulfilled (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2973:14)\n    at PromiseArray._iterate (https://www.saucedemo.com/__cypress/runner/cypress_runner.js:2943:31)",
+                "diff": null
+              },
+              "uuid": "82cc92c5-efa7-4ebe-90bd-7463a3a64dbb",
+              "parentUUID": "fb3857c8-3d0a-4d4f-80ca-601641b95663",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "82cc92c5-efa7-4ebe-90bd-7463a3a64dbb"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 385,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

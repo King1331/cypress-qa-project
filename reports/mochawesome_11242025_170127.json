@@ -1,0 +1,145 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-11-24T23:01:21.289Z",
+    "end": "2025-11-24T23:01:27.738Z",
+    "duration": 6449,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e7d8f47a-3dfd-4bae-b067-09c084a868e1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\login.cy.js",
+      "file": "cypress\\e2e\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1eadea18-24ef-4797-89b0-6ca5fc67c38e",
+          "title": "Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Login exitoso",
+              "fullTitle": "Login Test Login exitoso",
+              "timedOut": null,
+              "duration": 2657,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.saucedemo.com/');\ncy.get('#user-name').type('standard_user');\ncy.get('#password').type('secret_sauce');\ncy.get('#login-button').click();\n// Validación de que entró correctamente\ncy.url().should('include', '/inventory');\ncy.get('.title').should('have.text', 'Products');",
+              "err": {},
+              "uuid": "1a88eb64-b27a-4e88-aa03-69321f764dec",
+              "parentUUID": "1eadea18-24ef-4797-89b0-6ca5fc67c38e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1a88eb64-b27a-4e88-aa03-69321f764dec"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2657,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "90838d0d-84c2-43ea-b26d-99288046a2e6",
+          "title": "Validación de productos en SauceDemo",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Valida que los productos se muestren correctamente",
+              "fullTitle": "Validación de productos en SauceDemo Valida que los productos se muestren correctamente",
+              "timedOut": null,
+              "duration": 1022,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Verifica que la URL es correcta\ncy.url().should('include', '/inventory');\n// Validar que hay productos en pantalla\ncy.get('.inventory_item').should('have.length.greaterThan', 0);\n// Validar el primer producto\ncy.get('.inventory_item').first().within(() => {\n  // Nombre del producto\n  cy.get('.inventory_item_name').should('be.visible').and('not.be.empty');\n  // Precio del producto\n  cy.get('.inventory_item_price').should('be.visible').and('contain', '$'); // asegura formato correcto\n  // Botón \"Add to cart\"\n  cy.contains('Add to cart').should('be.visible');\n});",
+              "err": {},
+              "uuid": "a36ee36c-c933-43b9-adc2-210184963b6a",
+              "parentUUID": "90838d0d-84c2-43ea-b26d-99288046a2e6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a36ee36c-c933-43b9-adc2-210184963b6a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1022,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
